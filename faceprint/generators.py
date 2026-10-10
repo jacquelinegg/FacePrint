@@ -43,13 +43,18 @@ def _src(client, x, prefix):
     return {f"{prefix}_url": x}
 
 def _fit(img_bgr, max_long, min_short, pad_x=0.30, pad_y=0.50):
-    """Crop to the detected face and rescale to the endpoint's file specs (face > 60% of the frame,
-    pixel limits). Returns (fitted BGR image, crop rect [x, y, w, h] in the original frame) so the
-    generated face can be composited back into the original photo afterwards."""
-    face, _ = FaceEngine().analyze(img_bgr)
-    if face is None: return img_bgr, (0, 0, img_bgr.shape[1], img_bgr.shape[0])
-    x1, y1, x2, y2 = [float(v) for v in face.bbox]
+    """Frame the image for an endpoint's file specs.
+
+    If the image ALREADY satisfies the limits it is passed through untouched - cropping it would leave
+    original pixels around the generated patch, which shows up as a hard seam in the result (that is
+    exactly what the hair-transfer demo artefact was). Otherwise crop to the face and report the rect
+    so the generated patch can be composited back."""
     h, w = img_bgr.shape[:2]
+    if max(h, w) <= max_long and min(h, w) >= min_short:
+        return img_bgr, (0, 0, w, h)                      # already inside the specs - no crop, no seam
+    face, _ = FaceEngine().analyze(img_bgr)
+    if face is None: return img_bgr, (0, 0, w, h)
+    x1, y1, x2, y2 = [float(v) for v in face.bbox]
     px, py = pad_x * (x2 - x1), pad_y * (y2 - y1)
     xa, ya = max(0, int(x1 - px)), max(0, int(y1 - py))
     xb, yb = min(w, int(x2 + px + 0.5)), min(h, int(y2 + py + 0.5))
@@ -63,16 +68,27 @@ def _fit(img_bgr, max_long, min_short, pad_x=0.30, pad_y=0.50):
         crop = cv2.resize(crop, None, fx=k, fy=k, interpolation=cv2.INTER_AREA)
     return crop, (xa, ya, xb - xa, yb - ya)
 
-def _composite(orig, gen, rect):
-    """Paste the generated face-crop back into the original framing so blending/lock work in the
-    original pixels (and the UI shows the original photo with the AI-generated face)."""
+def _composite(orig, gen, rect, feather=None):
+    """Paste the generated patch back into the original framing, with a feathered edge so the seam
+    is a blend instead of a line. When the patch covers the whole frame nothing is blended."""
     if gen is None: return orig
     rx, ry, rw, rh = rect
     if gen.shape[:2] == orig.shape[:2] or rw <= 0 or rh <= 0: return gen
+    if (rw, rh) >= (orig.shape[1], orig.shape[0]): return gen
     resized = cv2.resize(gen, (rw, rh), interpolation=cv2.INTER_AREA if gen.shape[1] > rw else cv2.INTER_CUBIC)
-    out = orig.copy()
-    out[ry:ry + rh, rx:rx + rw] = resized
-    return out
+    f = feather if feather is not None else max(3, int(0.02 * min(rw, rh)))
+    f = min(f, min(rw, rh) // 2)
+    mask = np.ones((rh, rw), np.float32)
+    ramp = np.linspace(0.0, 1.0, f, dtype=np.float32)
+    if f > 0:
+        mask[:, :f] = np.minimum(mask[:, :f], ramp)
+        mask[:, -f:] = np.minimum(mask[:, -f:], ramp[::-1])
+        mask[:f, :] = np.minimum(mask[:f, :], ramp[:, None])
+        mask[-f:, :] = np.minimum(mask[-f:, :], ramp[::-1][:, None])
+    out = orig.astype(np.float32).copy()
+    region = out[ry:ry + rh, rx:rx + rw].astype(np.float32)
+    out[ry:ry + rh, rx:rx + rw] = region * (1.0 - mask[..., None]) + resized.astype(np.float32) * mask[..., None]
+    return np.clip(out, 0, 255).astype(np.uint8)
 
 def generate(client, effect, src, ref=None, template_id=None, expression_type=None, hair_color="src",
              level=1.0, age_target=None):
