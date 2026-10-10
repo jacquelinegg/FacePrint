@@ -1,0 +1,113 @@
+{
+  "nose": {
+    "width": "Average",
+    "length": "Short"
+  },
+  "agegender": {
+    "age": 22,
+    "gender": "female"
+  },
+  "eyelid": {
+    "left_eyelid": "Double-lid",
+    "right_eyelid": "Double-lid",
+    "left_angle": "Upturned",
+    "right_angle": "Average",
+    "left_shape": "Almond",
+    "right_shape": "Almond",
+    "setting": "Average",
+    "size": "Average"
+  },
+  "eyebrow": {
+    "gap": "Far-Apart",
+    "left_shape": "Straight",
+    "right_shape": "Straight",
+    "left_body_thickness": "Average",
+    "left_tail_thickness": "Average",
+    "left_thinness": "Normal",
+    "right_body_thickness": "Average",
+    "right_tail_thickness": "Average",
+    "right_thinness": "Normal",
+    "left_shortness": "Normal",
+    "right_shortness": "Normal"
+  },
+  "color": {},
+  "face_quality": {
+    "has_face": true,
+    "area": "good",
+    "frontal": "good",
+    "lighting": "good",
+    "faceangle": "good"
+  },
+  "cheekbone": {
+    "left": "Flat Cheekbone",
+    "right": "Flat Cheekbone",
+    "overrall": "Flat Cheekbone"
+  },
+  "faceshape": "Square",
+  "facialratio": {
+    "horizontal_third": [
+      34,
+      34,
+      32
+    ],
+    "vertical_fifth": [
+      12,
+      20,
+      29,
+      21,
+      18
+    ],
+    "face_aspect_ratio": [
+      1,
+      1.475
+    ],
+    "left_eye_aspect_ratio": [
+      1,
+      2.681
+    ],
+    "right_eye_aspect_ratio": [
+      1,
+      2.739
+    ],
+    "left_eyebrow_arch_to_eyebrow_width": [
+      1,
+      1.462
+    ],
+    "right_eyebrow_arch_to_eyebrow_width": [
+      1,
+      1.532
+    ],
+    "left_eye_height_to_eyebrow_distance": [
+      1,
+      2.686
+    ],
+    "right_eye_height_to_eyebrow_distance": [
+      1,
+      2.437
+    ],
+    "overall_eye_height_to_eyebrow_distance": [
+      1,
+      2.559
+    ],
+    "nose_aspect_ratio": [
+      1,
+      1.223
+    ],
+    "nose_width_to_mouth_width": [
+      1,
+      1.339
+    ],
+    "nose_to_lip_to_chin": [
+      1,
+      1.815
+    ],
+    "upper_lip_to_lower_lip": [
+      1,
+      1.431
+    ]
+  },
+  "lipshape": [
+    "Heavy Lower Lip",
+    "Full"
+  ]
+}

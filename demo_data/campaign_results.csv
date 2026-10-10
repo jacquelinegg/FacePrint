@@ -1,0 +1,8 @@
+image,similarity,status,policy,issues
+01_luxury_grade.jpg,0.968,SAFE,COMPLIANT,
+02_soft_glam.jpg,0.93,SAFE,COMPLIANT,
+03_eyes_pop.jpg,0.527,REVIEW,NON-COMPLIANT,Similarity 0.53 is below the required 0.67; Locked attribute 'Eyes' changed too much (32 < 70)
+04_editorial_slim.jpg,0.871,SAFE,NON-COMPLIANT,Locked attribute 'Face shape' changed too much (41 < 70)
+05_beauty_max.jpg,0.539,REVIEW,NON-COMPLIANT,Similarity 0.54 is below the required 0.67; Locked attribute 'Face shape' changed too much (54 < 70)
+06_cyberpunk.jpg,0.556,REVIEW,NON-COMPLIANT,Similarity 0.56 is below the required 0.67; Locked attribute 'Face shape' changed too much (69 < 70)
+07_smile_lipstick.jpg,0.848,SAFE,COMPLIANT,

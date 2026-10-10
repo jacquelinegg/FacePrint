@@ -1,0 +1,6 @@
+{"nose":{"width":"Narrow","length":"Short"},"agegender":{"age":21,"gender":"female"},
+"eyelid":{"left_eyelid":"Single-lid","right_eyelid":"Single-lid","left_angle":"Upturned","right_angle":"Upturned","left_shape":"Almond","right_shape":"Almond","setting":"Close-set","size":"Small"},
+"eyebrow":{"gap":"Average","left_shape":"Straight","right_shape":"Soft Angled","left_body_thickness":"Average","left_tail_thickness":"Sparse","left_thinness":"Normal","right_body_thickness":"Average","right_tail_thickness":"Average","right_thinness":"Normal","left_shortness":"Normal","right_shortness":"Normal"},
+"cheekbone":{"left":"Flat Cheekbone","right":"Flat Cheekbone","overrall":"Flat Cheekbone"},"faceshape":"Round",
+"facialratio":{"horizontal_third":[32,35,33],"vertical_fifth":[18,18,26,18,20],"face_aspect_ratio":[1,1.299],"left_eye_aspect_ratio":[1,2.48],"right_eye_aspect_ratio":[1,2.557],"left_eyebrow_arch_to_eyebrow_width":[1,1.552],"right_eyebrow_arch_to_eyebrow_width":[1,1.624],"left_eye_height_to_eyebrow_distance":[1,1.946],"right_eye_height_to_eyebrow_distance":[1,1.973],"overall_eye_height_to_eyebrow_distance":[1,1.96],"nose_aspect_ratio":[1,1.296],"nose_width_to_mouth_width":[1,1.371],"nose_to_lip_to_chin":[1,2.094],"upper_lip_to_lower_lip":[1,1.153]},
+"lipshape":["Average"]}

@@ -1,0 +1,244 @@
+{
+  "started": "2026-10-10T15:22:54.593031",
+  "photo_sha256": "54709f62a290f3b7b9bf617b01867b715f7901b1b71e5fe6f90b78dbca198cb4",
+  "thresholds": {
+    "safe": 0.672301173210144,
+    "review": 0.146788331270218,
+    "source": "calibrated on 200 identities (2923 genuine / 5000 impostor pairs)"
+  },
+  "steps": [
+    {
+      "step": "local_arcface_baseline",
+      "ok": true,
+      "seconds": 8.0
+    },
+    {
+      "step": "youcam_upload_and_attributes",
+      "ok": true,
+      "seconds": 13.0
+    },
+    {
+      "step": "youcam_generate_aging",
+      "ok": true,
+      "seconds": 14.8
+    },
+    {
+      "step": "youcam_attributes_aging",
+      "ok": true,
+      "seconds": 14.5
+    },
+    {
+      "step": "identity_lock_aging",
+      "ok": true,
+      "seconds": 9.0
+    },
+    {
+      "step": "youcam_generate_hair",
+      "ok": true,
+      "seconds": 14.3
+    },
+    {
+      "step": "youcam_attributes_hair",
+      "ok": true,
+      "seconds": 9.7
+    },
+    {
+      "step": "identity_lock_hair",
+      "ok": true,
+      "seconds": 5.1
+    },
+    {
+      "step": "youcam_generate_smile",
+      "ok": true,
+      "seconds": 12.7
+    },
+    {
+      "step": "youcam_attributes_smile",
+      "ok": true,
+      "seconds": 12.1
+    },
+    {
+      "step": "identity_lock_smile",
+      "ok": true,
+      "seconds": 8.1
+    },
+    {
+      "step": "pdf_report",
+      "ok": true,
+      "seconds": 0.8
+    }
+  ],
+  "aging_summary": {
+    "full_effect_cosine": 0.571,
+    "full_effect_status": "REVIEW",
+    "max_safe_intensity": 0.7,
+    "max_review_intensity": 1.0,
+    "yc_attribute_changes": [
+      {
+        "category": "Face shape",
+        "attribute": "faceshape",
+        "before": "Square",
+        "after": "Oval"
+      },
+      {
+        "category": "Face shape",
+        "attribute": "overrall",
+        "before": "Flat Cheekbone",
+        "after": "Round Cheeks"
+      },
+      {
+        "category": "Eyes",
+        "attribute": "setting",
+        "before": "Average",
+        "after": "Wide-set"
+      },
+      {
+        "category": "Eyes",
+        "attribute": "overall eye height to eyebrow distance",
+        "before": 2.56,
+        "after": 2.95
+      },
+      {
+        "category": "Brows",
+        "attribute": "left shape",
+        "before": "Straight",
+        "after": "Rounded"
+      },
+      {
+        "category": "Brows",
+        "attribute": "right shape",
+        "before": "Straight",
+        "after": "Soft Angled"
+      },
+      {
+        "category": "Lips",
+        "attribute": "lipshape",
+        "before": "Heavy Lower Lip, Full",
+        "after": "Heavy Lower Lip"
+      },
+      {
+        "category": "Age / gender",
+        "attribute": "age",
+        "before": 22,
+        "after": 46
+      }
+    ]
+  },
+  "hair_summary": {
+    "full_effect_cosine": 0.868,
+    "full_effect_status": "SAFE",
+    "max_safe_intensity": 1.0,
+    "max_review_intensity": 1.0,
+    "yc_attribute_changes": [
+      {
+        "category": "Face shape",
+        "attribute": "faceshape",
+        "before": "Square",
+        "after": "Round"
+      },
+      {
+        "category": "Face shape",
+        "attribute": "face aspect ratio",
+        "before": 1.48,
+        "after": 1.23
+      },
+      {
+        "category": "Face shape",
+        "attribute": "horizontal third",
+        "before": [
+          34,
+          34,
+          32
+        ],
+        "after": [
+          27,
+          37,
+          36
+        ]
+      },
+      {
+        "category": "Brows",
+        "attribute": "gap",
+        "before": "Far-Apart",
+        "after": "Average"
+      },
+      {
+        "category": "Brows",
+        "attribute": "left shape",
+        "before": "Straight",
+        "after": "Soft Angled"
+      },
+      {
+        "category": "Brows",
+        "attribute": "right shape",
+        "before": "Straight",
+        "after": "Hard Angled"
+      },
+      {
+        "category": "Nose",
+        "attribute": "width",
+        "before": "Average",
+        "after": "Narrow"
+      }
+    ]
+  },
+  "smile_summary": {
+    "full_effect_cosine": 0.803,
+    "full_effect_status": "SAFE",
+    "max_safe_intensity": 1.0,
+    "max_review_intensity": 1.0,
+    "yc_attribute_changes": [
+      {
+        "category": "Face shape",
+        "attribute": "faceshape",
+        "before": "Square",
+        "after": "Heart"
+      },
+      {
+        "category": "Face shape",
+        "attribute": "overrall",
+        "before": "Flat Cheekbone",
+        "after": "Round Cheeks"
+      },
+      {
+        "category": "Brows",
+        "attribute": "left shape",
+        "before": "Straight",
+        "after": "Soft Angled"
+      },
+      {
+        "category": "Brows",
+        "attribute": "right shape",
+        "before": "Straight",
+        "after": "Soft Angled"
+      },
+      {
+        "category": "Lips",
+        "attribute": "lipshape",
+        "before": "Heavy Lower Lip, Full",
+        "after": "Heavy Lower Lip"
+      },
+      {
+        "category": "Nose",
+        "attribute": "width",
+        "before": "Average",
+        "after": "Broad"
+      },
+      {
+        "category": "Nose",
+        "attribute": "nose width to mouth width",
+        "before": 1.34,
+        "after": 1.48
+      },
+      {
+        "category": "Nose",
+        "attribute": "nose to lip to chin",
+        "before": 1.81,
+        "after": 2.08
+      }
+    ]
+  },
+  "report_id": "41E8B84475F66A5A",
+  "finished": "2026-10-10T15:24:58.455332",
+  "all_ok": true
+}

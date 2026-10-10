@@ -1,0 +1,23 @@
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# secrets / local env
+.env
+.streamlit/secrets.toml
+
+# outputs that are reproducible
+out/
+*.log
+faceprint_qa*.csv
+
+# caches
+.pytest_cache/
+.DS_Store
+Thumbs.db
+
+# insightface models are downloaded at runtime into the user's home (~/.insightface)
+# and calibrated thresholds live in faceprint/calibration.json (committed on purpose)

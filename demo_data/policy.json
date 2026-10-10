@@ -1,0 +1,9 @@
+{
+  "talent": "Demo model",
+  "campaign": "Spring 2026 (simulated)",
+  "min_cosine": null,
+  "locked": {
+    "Face shape": 70,
+    "Eyes": 70
+  }
+}
