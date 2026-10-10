@@ -32,7 +32,10 @@ EFFECTS = {
 }
 NATIVE = {"skin"}      # only skin-simulation exposes a native strength axis; the other effects
                        # are generated once and identity-locked by blending (see faceprint.lock)
-DEFAULT_TEMPLATE = "female_blunt_bob"   # real template_id from GET /s2s/v2.1/task/template/hair-transfer
+DEFAULT_TEMPLATE = "female_long_brown_crimps"   # from GET /s2s/v2.1/task/template/hair-transfer.
+# A template with a length close to the original leaves far less of the original hair behind: measured
+# on the demo portrait, a short style (female_blunt_bob) keeps the original strands in 14 of 64 cells,
+# a long one in only 6 - the endpoint restyles what it masks and keeps what the new silhouette cuts off.
 TEMPLATE_API = "/s2s/v2.1/task/template/hair-transfer"
 
 

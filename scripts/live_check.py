@@ -15,7 +15,7 @@ from faceprint.policy import Policy
 from faceprint.report import build
 
 ap = argparse.ArgumentParser(); ap.add_argument("photo"); ap.add_argument("--effects", nargs="*", default=["aging", "hair", "smile"])
-ap.add_argument("--public-url"); ap.add_argument("--ref-look"); ap.add_argument("--template", default="female_blunt_bob")
+ap.add_argument("--public-url"); ap.add_argument("--ref-look"); ap.add_argument("--template", default="female_long_brown_crimps")
 a = ap.parse_args()
 out = f"evidence/{datetime.datetime.now():%Y%m%d_%H%M%S}"; os.makedirs(out, exist_ok=True)
 log = {"started": datetime.datetime.now().isoformat(), "photo_sha256": hashlib.sha256(open(a.photo, "rb").read()).hexdigest(),

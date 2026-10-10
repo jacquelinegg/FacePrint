@@ -5,6 +5,7 @@ from faceprint.qa import Baseline, stress_sweep, thresholds, CAL_PATH
 from faceprint import transforms as T
 from faceprint import ui
 from faceprint import attributes
+from faceprint.generators import DEFAULT_TEMPLATE
 
 st.set_page_config(page_title="FACEPRINT", page_icon=ui.ICON, layout="wide")
 GLYPH = ui.STATUS
@@ -92,7 +93,9 @@ with tab_qa:
         age_target = 25
         if src_mode.startswith("YouCam") and eff == "aging":
             age_target = c2.slider("Target age (YouCam res_age series)", 12, 70, 25)
-        param = c2.text_input("hair template_id", "female_blunt_bob") if (src_mode.startswith("YouCam") and eff == "hair") else None
+        param = c2.text_input("hair template_id", DEFAULT_TEMPLATE,
+                               help="A length close to the original leaves the least old hair behind; "
+                                    "a much shorter cut keeps the strands it cuts off.") if (src_mode.startswith("YouCam") and eff == "hair") else None
         with c3:
             st.write("")
             go = st.button("Generate + add to the analysis", use_container_width=True)
@@ -214,7 +217,9 @@ with tab_lock:
     effect = st.selectbox("Effect", ["aging", "hair", "makeup", "smile", "skin"])
     from faceprint.generators import DEFAULT_TEMPLATE
     c1, c2 = st.columns(2)
-    tmpl = c1.text_input("Hair template_id", DEFAULT_TEMPLATE) if effect == "hair" else None
+    tmpl = c1.text_input("Hair template_id", DEFAULT_TEMPLATE,
+                              help="A length close to the original leaves the least old hair behind; "
+                                   "a much shorter cut keeps the strands it cuts off.") if effect == "hair" else None
     if effect == "hair" and lkey:
         with c2.expander("Browse hair templates"):
             if st.button("List YouCam templates"):
